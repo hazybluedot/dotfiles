@@ -4,6 +4,7 @@ xterm*metaSendsEscape: true
 XTerm*faceName: anonymouse\ Pro-Powerline
 XTerm*faceSize: 11
 
+!! WARNING:  Remove the -nocpp flag from the xrdb line associated with userresources in /etc/gdm/Xsession.  Otherwise this file will not load correctly
 !! drop in Solarized colorscheme for Xresources
 !!
 !! ## Installation
