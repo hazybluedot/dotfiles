@@ -1,0 +1,50 @@
+#alignment top_left
+background no
+border_width 1
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont Inconsolata :size=11
+gap_x 22
+gap_y 2
+minimum_size 5 5
+net_avg_samples 2
+no_buffers yes
+out_to_console yes
+out_to_x no
+out_to_stderr no
+extra_newline no
+own_window no
+own_window_class Conky
+own_window_type desktop
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+double_buffer yes
+
+TEXT
+${color green}RAM:$color $memperc${color lightgrey}% ${color green}Swap:$color $swapperc${color lightgrey}% \
+${color green}Processes:$color $running_processes${color lightgrey}/ \
+$color$processes  \
+${color green}CPU: $color$cpu${color lightgrey}% $color${freq_g 1},${freq_g 2}${color lightgrey}Ghz \
+$color${exec cat /sys/devices/platform/applesmc.768/temp5_input | sed -e 's/\([0-9]\{2\}\)\([0-9]\{1\}\)[0-9]*/\1.\2/'}${color 
+lightgrey}C \
+${color green}Fans $color${exec sensors | grep Left | sed -e 's/^[^0-9]*\([0-9]\{4\}\).*/\1/g' },\
+${exec sensors | grep Right | sed -e 's/^[^0-9]*\([0-9]\{4\}\).*/\1/g' }\
+${color lightgrey} \
+#${color green}BATT: $color$battery_short${color lightgrey} $battery_time \
+${exec cat /proc/acpi/battery/BAT0/state | grep 'present rate' | sed -e 's/^[^0-9]*\([0-9]\{1,5\}\)/\1/'} \
+#WiFi: $wireless_essid(wlan0) 
+${color yellow} ${time %a.%d.%m.%Y  %R} \
+${wireless_essid wlan0} \
+${exec ~/bin/get_wlan_ip} ${downspeed wlan0}/${upspeed wlan0}
+${exec dropbox status}
