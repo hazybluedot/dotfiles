@@ -1,6 +1,7 @@
 Xcursor.theme: Adwaita
 xterm*metaSendsEscape: true
 
+!!XTerm*faceName: Inconsolata
 XTerm*faceName: anonymouse\ Pro-Powerline
 XTerm*faceSize: 11
 
